@@ -90,7 +90,7 @@ function Get-QuickPick {
             $this.FourthBall,
             $this.FifthBall,
             $this.PowerBall -join " ")
-        }
+        } | Out-Null
 
         $tickets += $ticket
     }
