@@ -80,12 +80,12 @@ function Get-QuickPick {
         $pbball = Get-Random -InputObject $pbpick
 
         $ticket = [PSCustomObject][Ordered] @{
-            FirstBall = $ffballs[0];
+            FirstBall  = $ffballs[0];
             SecondBall = $ffballs[1];
-            ThirdBall = $ffballs[2];
+            ThirdBall  = $ffballs[2];
             FourthBall = $ffballs[3];
-            FifthBall = $ffballs[4];
-            PowerBall = $pbball;
+            FifthBall  = $ffballs[4];
+            PowerBall  = $pbball;
         }
 
         $ticket | Add-Member -PassThru ScriptMethod Numbers {
