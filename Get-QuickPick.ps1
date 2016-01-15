@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Generates a Quick Pick set of numbers for PowerBall.
 
@@ -74,7 +74,7 @@ function Get-QuickPick {
 
         $pbball = Get-Random -InputObject $pbpick
 
-        $tickets += [PSCustomObject][Ordered] @{
+        $ticket = [PSCustomObject][Ordered] @{
             FirstBall = $ffballs[0];
             SecondBall = $ffballs[1];
             ThirdBall = $ffballs[2];
@@ -82,6 +82,17 @@ function Get-QuickPick {
             FifthBall = $ffballs[4];
             PowerBall = $pbball;
         }
+
+        $ticket | Add-Member -PassThru ScriptMethod Numbers {
+           ($this.FirstBall,
+            $this.SecondBall,
+            $this.ThirdBall,
+            $this.FourthBall,
+            $this.FifthBall,
+            $this.PowerBall -join " ")
+        }
+
+        $tickets += $ticket
     }
 
     return $tickets
