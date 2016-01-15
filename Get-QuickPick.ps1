@@ -14,6 +14,11 @@ Get 50 Quick Picks, but exclude ones with your unlucky third ball number.
 Get-QuickPick -Times 50 | Where-Object { $_.ThirdBall -ne 66 }
 
 .EXAMPLE
+To fruitlessly test if this function can simulate winning PowerBall numbers.
+Lightning always strikes twice!
+Get-QuickPick -Times 50000 | Where-Object { $_.Numbers() -eq "4 8 19 27 34 10" }
+
+.EXAMPLE
 To format the ticket numbers into a pretty table.
 $format = @{Label="First Ball"; Expression={$_.FirstBall}; Align="right"}, `
 @{Label="Second Ball"; Expression={$_.SecondBall}; Align="right"}, `
