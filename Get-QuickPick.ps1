@@ -65,11 +65,10 @@ function Get-QuickPick {
 
     for ($quickpicks = 0; $quickpicks -lt $Times; $quickpicks++) {
         $ffballs = @()
+        $pbball  = 0
 
         $ffpick = 1..69
         $pbpick = 1..26
-
-        $pbball = 0
 
         for ($i = 0; $i -lt 5; $i++) {
             $pick = Get-Random -InputObject $ffpick
